@@ -10,4 +10,6 @@ with Virtualisation - we're able to bypass this requirement for separate hardwar
 
 ![Virtual Machine Architecture](https://2.bp.blogspot.com/_AXUmwddhdfA/TP1-XWhvypI/AAAAAAAAAzg/3x7aEDsiqu4/s1600/Virtual+Machines.png) 
 
-the hypervisor will ask the native operating system for some of its resources i.e virtual ram, virtual cpu and virtual storage
+the hypervisor will ask the native operating system for some of its resources i.e virtual ram, virtual cpu and virtual storage - a core concept in virtualisation is that **hardware resources are shared between virtual machines**
+
+remember: the virtual machine is although virtual, still constrained by the resources the physical machine actually has available i.e if your computer has 8 GB of RAM you cannot allocate 16GB of RAM to your virtual machine 
