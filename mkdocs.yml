@@ -5,7 +5,7 @@ theme:
   language: en
   icon: 
     features:
-    - content.code.annotate
+    - content.code.annotate #allows for annotations within code
     - content.code.copy
     - content.tabs.link
     - header.autohide
