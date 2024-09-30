@@ -1,3 +1,6 @@
-_Version Control_ refers to the issues created by multiple people writing software collaboratively 
+_Version Control_ is the solution created to enable multiple people to write software collaboratively 
 
-these issues are fundamentally caused by the creation of different versions of the source code
+this scenario presents a host of problems:
+
+- issues are fundamentally caused by the creation of different versions of the source code which arise due to multiple people collaborating on the same project
+
