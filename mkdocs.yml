@@ -1,7 +1,7 @@
 site_name: Evan Chauhan
 site_url: https://mydomain.org/mysite
 theme:
-  name: material
+  name: mkdocs
   language: en
   icon: 
     features:
@@ -19,3 +19,13 @@ theme:
     - search.highlight 
     - search.share
     - search.suggest 
+    plugins:
+    - search
+    - mermaid2
+    - pymdownx.extra:
+      pymdownx.superfences:
+        custom_fences:
+          - name: mermaid
+            class: mermaid
+            format: !!python/name:pymdownx.superfences.fence_code_format
+    
