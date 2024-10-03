@@ -8,7 +8,8 @@ for this you would require a new machines with new hardware to be able to run yo
 
 with Virtualisation - we're able to bypass this requirement for separate hardware to run a different OS through a _hypervisor_ - this technology allows multiple virtual computers to be hosted on a singular set of physical computing resources
 
-![Virtual Machine Architecture](https://2.bp.blogspot.com/_AXUmwddhdfA/TP1-XWhvypI/AAAAAAAAAzg/3x7aEDsiqu4/s1600/Virtual+Machines.png) 
+![Conventional Virtual Machine architecture](virtual_machine_architecture.png "Virtual Machine set up")
+
 
 the hypervisor will ask the native operating system for some of its resources i.e virtual ram, virtual cpu and virtual storage - a core concept in virtualisation is that **hardware resources are shared between virtual machines**
 

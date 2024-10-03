@@ -11,3 +11,6 @@ In this case, when the application would go to run in a new environment with upd
 Containerisation aims to solve this problem by packaging an application with all of its dependencies so that it is in effect machine-agnostic - that is to say - the application and all of its dependencies are transported within a 'container' in between environments 
 
 in this example that would mean the developer's application along with the version of matplotlib that it uses are packaged within a _container_ so that the application can run in any environment i.e it is a containerised application
+
+Container
+ : here is the commonly touted definition of a container 

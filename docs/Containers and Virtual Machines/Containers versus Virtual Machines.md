@@ -30,4 +30,6 @@ now one server may run for example three virtual machines that each contain a pa
 | *OS flexibility*       | Limited to the same OS family as the host         | Can run different operating systems i.e mac os machine can run a vm that operates linux       |
 | Security and management       | potentially less secure due to kernel sharing i.e each container has access to the host kernel therefore orchestration tools are needed for large setups        | stronger isolation due to separate OS for each VM which are managed by a hypervisor layer       |
 
+## Fundamental differences between container and vm architecture
+
 ![fundamental differences between container and vm architecture](containerarchitectureversusvm.png "fundamental difference in architecture")
