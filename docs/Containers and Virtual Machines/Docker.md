@@ -54,6 +54,21 @@ term
 ### _Docker Registries_
 : A Docker registry is a service for storing and distributing Docker images. Registries can be public (like Docker Hub) or private (like AWS ECR or self-hosted). Docker registries allow developers to easily push images for sharing and deployment and pull them for use in containers. This system supports image versioning, secure access, and integration into development workflows, making it a critical part of Docker-based application development and deployment.
 
+### container runtimes versus container engines
+|:-------------|--------------:|
+|**can**|**cannot**|
+|create namespaces| |build images|
+|create and associate cgroups to namespaces (container)| |pull images|
+|map filesystems to containers|
+
+first table | second table | third table | fourth table 
+    --------|--------|-------|----------
+ more content table 1 | content table 2 | content table 3 | contant table 4
+ more content table 1 | more content table 2 | content table 3 | content table 4
+ more content table 1 | more content table 2 | content table 3 | content table 4
+
+
+container runtimes reduce the number of steps required to create, manage and delete a container reducing having to pe
 
 ### Docker architecure
 
@@ -71,8 +86,17 @@ graph TD;
     B-->D;
     C-->D;
 ```
+# docker as a container runtime
 
+Docker containers are composed of control groups and namespaces 
 
+namespaces define which resources containers can access on their host and control groups define how much of these resouces the container may access
+
+namespaces
+Docker is a popular container runtime that simplifies this process. Instead of doing everything step-by-step, you can just use a simple command, and Docker takes care of the rest
+
+# the process for this is depicted below
+![container runtime](container_runtime_simplification.png)
 
 
 
