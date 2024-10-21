@@ -98,6 +98,44 @@ there are two standard types of container runtimes in use today:
     - although the runtime spec does not specify how to start and stop containers it can still be used to start and stop virtual machines (sandboxed container runtimes)
     - we won't elaborate on some other concepts like sandboxed OCI runtimes like **gVisor** and **Nable Containers** for now other than only mentioning that they use unikernels to restrict what containers can and cannot do and **kata containers** is a container runtime used to create containers inside of virtual machines 
 - CRI runtimes 
+    - Created by Kubernetes, this is another set of rules for container runtimes. It helps Kubernetes manage lots of containers across many machines. Popular tools here are:
+
+    - containerd: Used by Docker and can work with other runtimes like gVisor.
+    - CRI-O: Maintained by Red Hat and others, it works well with Kubernetes.
+
+>In essence, OCI and CRI are just different sets of rules and tools for managing containers, each with its own strengths and uses.
+
+## what is a container run time
+A container runtime is software that is responsible for running containers on a host operating system. It manages the lifecycle of containers, including starting, stopping, and managing their resources. Essentially, it's the component that allows containers to operate on a given infrastructure.
+
+### Key Functions of a Container Runtime
+
+1. **Image Management**: Pulling and storing container images from a container registry.
+
+2. **Container Execution**: Starting, stopping, and managing the execution of containers.
+
+3. **Resource Allocation**: Allocating system resources (CPU, memory, storage) to each container.
+
+4. **Networking**: Setting up networking for containers to communicate with each other and the outside world.
+
+5. **Isolation**: Ensuring that containers run in isolated environments, maintaining security and resource boundaries.
+
+### Common Container Runtimes
+
+- **Docker**: One of the most popular container runtimes, providing an easy-to-use interface for creating and managing containers.
+- **containerd**: A core component that handles container execution and management, often used with Kubernetes.
+- **CRI-O**: A lightweight container runtime specifically for Kubernetes.
+- **runc**: A low-level OCI compliant container runtime that is responsible for running containers created by higher-level tools.
+
+### Use Cases
+
+Container runtimes are used in various scenarios, including:
+
+- **Microservices Architectures**: Running different components of an application in isolated containers.
+- **Development and Testing**: Providing a consistent environment for developers and testers.
+- **CI/CD Pipelines**: Automating the deployment and testing of applications in a containerized environment.
+
+In summary, a container runtime is crucial for enabling the functionality of containers, allowing developers to package applications and their dependencies in a consistent and portable manner.
 
 ## summary OCI and CRI runtimes
 
@@ -172,6 +210,26 @@ the docker engine comes with
 >note: podman is a redhat product that is practically equivalent to Docker in almost every use case
 an important difference between *docker* and *podman* is that Podman uses *builda* to build container images
 also podman uses crun as its container run time unlike containerd which docker uses
+
+## importance of understanding the Docker engine:
+
+Understanding the Docker Engine is crucial for managing containerized applications efficiently. It provides a robust set of tools for building, running, and managing containers, which is essential in DevOps and cloud computing environments.
+
+### the Docker Engine
+main components of the Docker Engine are:
+Docker CLI: Command-line interface for interacting with Docker.
+Dockerfile Syntax: Configuration syntax for creating images.
+HTTP REST API: Communicates with container runtimes.
+
+Default Runtime: Uses containerd but can be changed.
+
+### Podman
+is the RedHat container engine and is functionally equivalent to the Docker Engine 
+DIffers from the Docker Engine in two important ways:
+
+1. Buildah: Used instead of Dockerfile for creating images.
+
+2. crun: Default runtime instead of containerd. (also easily changed)
 
 ## docker configuration ##
 lives in /var/lib/docker directory i.e containers, volumes and metadata all live in this directory
