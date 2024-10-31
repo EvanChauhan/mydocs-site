@@ -7,6 +7,10 @@ WORKDIR /app
 # Copy the current directory contents into the container at /app
 COPY . /app
 
+RUN mkdir /test
+
+VOLUME /test
+
 # Install MkDocs and any additional plugins required
 RUN pip install --no-cache-dir mkdocs mkdocs-material
 
