@@ -236,5 +236,22 @@ lives in /var/lib/docker directory i.e containers, volumes and metadata all live
 >/var/lib/docker/overlay directory stores container volumes 
 the docker engine exposes an api for interacting with the other components like the container's runtime: that is to say the pipe between the docker client and the docker engine is called a *socket*; /var/run/docker.sock
 
-## Docker Operations
+## Docker Image Operations
 
+    Docker Image Commands:
+                        build       Build an image from a Dockerfile
+                        history     Show the history of an image
+                        import      Import the contents from a tarball to create a filesystem image
+                        inspect     Display detailed information on one or more images
+                        load        Load an image from a tar archive or STDIN
+                        ls          List images
+                        prune       Remove unused images
+                        pull        Download an image from a registry
+                        push        Upload an image to a registry
+                        rm          Remove one or more images
+                        save        Save one or more images to a tar archive (streamed to STDOUT by default)
+                        tag         Create a tag TARGET_IMAGE that refers to SOURCE_IMAGE
+
+Docker Image ls | Docker Images ls
+-----------------|----------------
+lists all of the images on our machine | searches for all images that match 'ls'
