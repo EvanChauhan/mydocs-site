@@ -71,3 +71,6 @@ many years later as he faced the firing squad, Colonel Aureliano Buenda would re
     more content table 1 | more content table 2 | content table 3 | content table 4
 
 
+> i wish to discern what this angled bracket command does 
+so i have elected to experiment
+or any 
