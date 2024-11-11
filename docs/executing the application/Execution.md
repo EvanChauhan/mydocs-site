@@ -1,7 +1,12 @@
 the application is launched via the execution of _three shell scripts_
-    * run.sh
+    * run.sh 
     * exec.sh
     * build.sh 
+
+these scripts need to be executed in the following order
+    1. ./build.sh
+    2. ./run.sh
+    3. ./exec.sh
 
 ## Shell Commands/Shell Scripting
 
