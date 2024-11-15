@@ -14,3 +14,5 @@ with Virtualisation - we're able to bypass this requirement for separate hardwar
 the hypervisor will ask the native operating system for some of its resources i.e virtual ram, virtual cpu and virtual storage - a core concept in virtualisation is that **hardware resources are shared between virtual machines**
 
 remember: the virtual machine is although virtual, still constrained by the resources the physical machine actually has available i.e if your computer has 8 GB of RAM you cannot allocate 16GB of RAM to your virtual machine 
+
+> for optimal/maxiumum isolation virtual machines are superior to containers but they incur significant performance costs so a decision needs to be made that takes into account performance versus 
