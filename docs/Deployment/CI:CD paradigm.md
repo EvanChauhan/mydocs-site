@@ -38,3 +38,5 @@ as having to integrate tools that don't lend themselves to an easy integration i
 
 this is an advantage of using ci/cd pipelines within github actions 
 
+to build the rather complex pipeline i.e build the docker image, run a container from that image every time new code is pushed remote
+

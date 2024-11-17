@@ -12,5 +12,13 @@ why wont my workflow trigger goddammit
 
 this is now to see how to work with two remote repositories concurrently 
 
+## adding conditions to a workflow so that it executes sequentially rather than in parallel 
+rather than 
+> on: push and on: pull_request
+> on:        on:
+    push: /    pull-request
+
+
+
 
 
