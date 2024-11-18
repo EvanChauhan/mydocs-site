@@ -46,7 +46,23 @@ on:
 | Team | | 60 |
 | Enterprise | | 180 |
 
+furthermore, jobs are capped at a six hour run-time which should be sufficient for whatever jobs your workflows need to complete 
 
+Also, and importantly, actions cannot trigger other workflows as this may create infinite loops of actions triggering workflows and then subsequently workflows triggering other actions ad infinitum 
+
+action logs are capped at 64kb
+
+we can control the execution
+
+the steps to create this pipeline were
+1. we created a file in the .github/workflows directory 
+2. we call our file complex.yml 
+    what is of paramount importance here is that we give it the appropriate extension i.e .yml or .yaml
+    within our complex.yml file we give it a name attribute and give it a name in this case Complex
+3. then we use the _on_ keyword to specify the trigger that will set off our workflow
+4. we use the jobs keyword to list the jobs that our workflow will run 
+5. we are able to specify which jobs will execute on whichever os by dileanating these below the jobs field i.e ubuntu: macos: windows:
+6. then lastly we are able to use the _needs_ keyword to specify the jobs that this particular job needs to run successfully 
 
 
 
