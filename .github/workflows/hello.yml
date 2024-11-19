@@ -46,3 +46,13 @@ jobs:
           docker build -t $REGISTRY/$IMAGE:$TAG .
 
           docker push $REGISTRY/$IMAGE:$TAG 
+
+      - name: Push to DockerHub
+        uses: docker/build-push-action@v1
+        with:
+          username: ${{secrets.DOCKER_USERNAME}}
+          password: ${{secrets.DOCKER_PASSWORD}}
+          repository: bigsilver07/my-mkdocs-site
+          tags: latest, ${{ github.run_number}}
+          
+
