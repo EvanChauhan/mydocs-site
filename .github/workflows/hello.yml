@@ -39,10 +39,10 @@ jobs:
           set -ex
 
           # SET THE FOLLOWING VARIABLES
-          REGISTRY=evan.chauhan
+          REGISTRY=bigsilver07
           IMAGE=my-mkdocs-site
           TAG=1.0
 
           docker build -t $REGISTRY/$IMAGE:$TAG .
 
-          docker images
+          docker push $REGISTRY/$IMAGE:$TAG 
