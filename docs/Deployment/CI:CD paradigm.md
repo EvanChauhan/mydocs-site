@@ -40,3 +40,8 @@ this is an advantage of using ci/cd pipelines within github actions
 
 to build the rather complex pipeline i.e build the docker image, run a container from that image every time new code is pushed remote
 
+### developing the pipeline
+
+we can develop a ci/cd pipeline using github actions that gets triggered upon each push/pull request to the master branch of our repository
+
+each time the pipeline is triggered i.e on each push to the master branch of our repository the workflow runs a series of jobs, steps and actions

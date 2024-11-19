@@ -96,6 +96,12 @@ they are injected when the environment starts running and prior to any commands 
 environemnt variables are case sensitive therefore, as a result, when they are referenced in a workflow or a step the reference needs to match the variable exactly as it is defined 
 
 ### Default environment variables
+
+- these are dynamic key,value pairs that are stored in memory in the virtual environment running our workflow 
+- commands and actions running as steps can access environemnt variables to use the information they hold 
+- these values are read as the process runs aka they are not already stored in the virtual environment 
+- instead they are injected when the environment starts to run and before any commands are called 
+- they are case-sensitive 
 - notice each one starts with github in all caps
 they're helpful when actions need to know information like the type of event that started the workflow(GITHUB_EVENT_NAME), the person (GITHUB_ACTOR) that triggered the event and the location of the files being used in the workflow (GITHUB_WORKSPACE)
 
@@ -123,4 +129,82 @@ using the env attribute, variables can be defined at the workflows, jobs and ste
     | Steps |  The step where the variable is defined |
 
 
-### Accessing environment variables                                                |
+### Accessing environment variables    
+
+can be accessed in one of two ways 
+either using shell variable syntax or by using YAML syntax
+
+using the shell variable syntax:
+
+here variables are passed onto the step's shell to be interpreted 
+
+and are accessed by $VARIABLE_NAME on mac os or on linux
+
+## shell variable syntax ##
+- variables are passed onto the steps' shell to be interpreted or accessed within an action by using that action's default shell
+- Linux/macOS (here the bash shell is used)
+    - in bash, environment variables are accessed like $VARIABLE_NAME
+- in a windows environment _powershell_ is used by default
+    - here environment variables are accessed like (by a string) $Env:VARIABLE_NAME
+
+in either of these situations the variable will be read from the shell
+in other words
+the workflow passes the shell value and the shell does the interpretation 
+
+## YAML Syntax ##
+
+- to access a variable using YAML syntax 
+> ${{ env.VARIABLE_NAME }}
+here the variable is read from the workflow i.e the variable is interpreted before being passed to any steps that use it
+
+because environment variables in .yaml syntax are interpreted at the workflow level they can be used to configure other parts of the workflow
+
+## Secrets ##
+- while we can add environment variables to workflows we may need to store sensitive information like passwords or api keys
+- secrets are stored as encrypted values in the github repository's settings 
+- stored secrets cannot be viewed or edited 
+- workflows are limited to 100 secrets and secrets are limited to 64kb
+- stored as encrypted environment variables
+- access secrets by ${{ secrets.SECRET_NAME }}
+- must be explicitly passed to a step or an action 
+
+## Artifacts ##
+
+solves the problem of enabling you to keep something after a workflow has been completed 
+the files may be
+* compiled binaries 
+allow you to be able to pass data between workflow jobs (this seems promising)
+
+because each job runs in a separate virtual environment, when that job is completed the data will be erased 
+
+Because each job runs in a fresh virtual environment, when that job completes that environment is thereafter deleted 
+
+notice below how job2 has a dependency on a file created by the first (job1) job
+
+Job 1 - create and upload the artifact
+Job 2 - wait for job 1 to complete 
+      - Download and use the artifact
+
+to share the file, job1 created and uploads the artifact 
+
+then job2 waits for job1 to complete, downloads and uses the artifact that job1 creates 
+* Artifacts can only be uploaded by a workflow using actions/upload-artifact
+    * actions/upload-artifact
+
+* Artifacts can only be downloaded by the uploading workflow where they were created 
+    * actions/download-artifact
+
+* manual downloads (after the workflow completes) -> 500 mb available within a free github account for artifacts
+* my exercise file for using artifacts is not successfully executing 
+
+## Handling Pull Requests ##
+
+a pull request or PR is made whenever a request is made to merge code from repository into another or when a developer has made a change into a cloned repository and wishes to merge it into the the original repository 
+
+>GitHub actions can be used to automate the entire process of accepting and merging a pull request 
+
+we can use a workflow the approves and merges pull-requests based on specific criteria 
+
+first we run some tests to ensure the code being submitted doesn't compromise the codebase in anyway 
+
+second we check to see if the author is in a list of approved committers 
