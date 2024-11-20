@@ -37,3 +37,5 @@ When a project's code has been transformed from a text representation to an exec
 the process resembles 
 
 GNU Compiler
+
+# the linker checker
