@@ -45,7 +45,9 @@ jobs:
 
           docker build -t $REGISTRY/$IMAGE:$TAG .
 
-          
+          set -ex
+
+          docker run --rm -p 8000:8000 -v ${PWD}:/app --name my-docs -d evan.chauhan/my-mkdocs-site:1.0 
 
       - name: Push to DockerHub
         uses: docker/build-push-action@v1
