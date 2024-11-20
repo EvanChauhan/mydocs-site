@@ -45,7 +45,7 @@ jobs:
 
           docker build -t $REGISTRY/$IMAGE:$TAG .
 
-          docker push $REGISTRY/$IMAGE:$TAG 
+          
 
       - name: Push to DockerHub
         uses: docker/build-push-action@v1
