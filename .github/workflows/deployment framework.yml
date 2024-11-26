@@ -56,12 +56,12 @@ jobs:
           password: ${{secrets.DOCKER_PASSWORD}}
           repository: bigsilver07/my-mkdocs-site
           tags: latest, ${{ github.run_number }}
-          
+
       # let's try and use the marketplace action to check whether our links are valid
       - name: Run URL check script
         uses: adriancoman/link-checks-action@0.1.0
         with:
-          file-to-check: "{/Users/evanchauhan/development/mydocs-site/docs/Containers and Virtual Machines},/Users/evanchauhan/development/mydocs-site/docs/Deployment,{/Users/evanchauhan/development/mydocs-site/docs/Version Control}"
+          file-to-check: "{http://localhost:8000/mysite/"
   
 
       
