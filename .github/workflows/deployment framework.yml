@@ -56,12 +56,8 @@ jobs:
           password: ${{secrets.DOCKER_PASSWORD}}
           repository: bigsilver07/my-mkdocs-site
           tags: latest, ${{ github.run_number }}
-      #run our link extraction script
-      - name: Run Link Extraction Script
-        run: |
-          chmod +x scripts/extract_links.sh
-          ./extract_links.sh
-      # now that we have extracted the links, the next step is to check whether they are valid
+          
+      # let's try and use the marketplace action to check whether our links are valid
       - name: Run URL check script
         uses: adriancoman/link-checks-action@0.1.0
         with:
