@@ -61,8 +61,9 @@ jobs:
       # Step 4: Run the link extraction script
       - name: Extract Links
         run: |
-          chmod +x scripts/extract_links.sh
+          chmod +x extract_links.sh
           extract_links.sh
+          
 
   
 
