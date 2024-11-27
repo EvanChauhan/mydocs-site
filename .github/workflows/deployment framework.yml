@@ -56,14 +56,9 @@ jobs:
           password: ${{secrets.DOCKER_PASSWORD}}
           repository: bigsilver07/my-mkdocs-site
           tags: latest, ${{ github.run_number }}
-
-      # let's try with this link check action from github marketplace with a link they're supplying
-          
       - name: Check for broken links
-        id: link-report
-        uses: elliotforbes/broken-link-checker@1.0.2
-        with:
-          url: "https://tutorialedge.net"
+        run: |
+          curl -I http://localhost:8000/mysite/
   
   
           
