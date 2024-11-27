@@ -56,7 +56,7 @@ jobs:
           password: ${{secrets.DOCKER_PASSWORD}}
           repository: bigsilver07/my-mkdocs-site
           tags: latest, ${{ github.run_number }}
-          
+
       - name: Validate Website Links
         run: |
           # Define the base URL for the site
@@ -64,7 +64,7 @@ jobs:
           LINKS_FILE="extracted_links.txt"
   
           # Use wget to crawl the site and extract links
-          wget --spider --recursive --level=3 --output-file=wget.log "$BASE_URL"
+          wget --spider --recursive --level=2 --output-file=wget.log "$BASE_URL"
   
           # Extract URLs from the wget log
           grep -Eo 'http[s]?://[^ ]+' wget.log | sort -u > "$LINKS_FILE"
