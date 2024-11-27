@@ -61,7 +61,7 @@ jobs:
       # Step 4: Run the link extraction script
       - name: Extract Links
         run: |
-          chmod +x extract_links.sh
+          chmod +x /Users/evanchauhan/development/mydocs-site/docs/extract_links.sh
           extract_links.sh
           
 
