@@ -61,7 +61,7 @@ jobs:
       - name: Link check action
         uses: adriancoman/link-checks-action@1.0.1
         with: 
-          file-to-check: docs/Containers and Virtual Machines/Docker.md
+          file-to-check: Docker.md
   
           
 
