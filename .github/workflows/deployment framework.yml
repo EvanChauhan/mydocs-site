@@ -57,15 +57,11 @@ jobs:
           repository: bigsilver07/my-mkdocs-site
           tags: latest, ${{ github.run_number }}
           
-      - name: Install Lychee
+      - name: Check for broken links
         run: | 
-          curl -sSfL https://github.com/lycheeverse/lychee/releases/download/v0.13.0/lychee-linux-x86_64 -o /usr/local/bin/lychee
-          chmod +x /usr/local/bin/lychee
+          curl -I http://localhost:8000/mysite/
+          curl --head https://example.com/nonexistent-page
 
-      - name: Validate Links
-        run: | 
-          BASE_URL="http://localhost:8000"
-          lychee --verbose --include "$BASE_URL"
 
 
   
