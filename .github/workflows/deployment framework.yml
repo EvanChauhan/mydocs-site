@@ -61,7 +61,7 @@ jobs:
       - name: Link check action
         uses: adriancoman/link-checks-action@1.0.1
         with: 
-          file-to-check: /Users/evanchauhan/development/mydocs-site/docs
+          file-to-check: /Users/evanchauhan/development/mydocs-site/docs/Containers and Virtual Machines
   
           
 
