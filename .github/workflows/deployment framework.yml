@@ -56,9 +56,45 @@ jobs:
           password: ${{secrets.DOCKER_PASSWORD}}
           repository: bigsilver07/my-mkdocs-site
           tags: latest, ${{ github.run_number }}
-      - name: Check for broken links
+          
+      - name: Validate Website Links
         run: |
-          curl --head https://example.com/nonexistent-page
+          # Define the base URL for the site
+          BASE_URL="http://localhost:8000"
+          LINKS_FILE="extracted_links.txt"
+  
+          # Use wget to crawl the site and extract links
+          wget --spider --recursive --level=3 --output-file=wget.log "$BASE_URL"
+  
+          # Extract URLs from the wget log
+          grep -Eo 'http[s]?://[^ ]+' wget.log | sort -u > "$LINKS_FILE"
+  
+          echo "Validating links found on the site..."
+  
+          # Initialize a variable to track overall status
+          ALL_VALID=true
+  
+          # Check each link using curl
+          while IFS= read -r link; do
+            echo -n "Checking $link... "
+            status_code=$(curl -o /dev/null -s -w "%{http_code}" "$link")
+  
+            if [[ "$status_code" =~ ^[23] ]]; then
+              echo "OK ($status_code)"
+            else
+              echo "FAILED ($status_code)"
+              ALL_VALID=false
+            fi
+          done < "$LINKS_FILE"
+  
+          # Fail the workflow if any link validation fails
+          if [[ "$ALL_VALID" = false ]]; then
+            echo "Some links failed validation."
+            exit 1
+          else
+            echo "All links are valid!"
+          fi
+  
 
   
   
