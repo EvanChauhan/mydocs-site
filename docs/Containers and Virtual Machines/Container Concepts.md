@@ -21,6 +21,9 @@ Container
 
  they're important as they simplify this process greatly i.e without them you would have to manually like setting up the environment for each plant (application) - a tiresome labor
 
+ this diagram represents container runtime architecture
+ ![container runtimes][/Users/evanchauhan/development/mydocs-site/docs/localhost:8000/mysite/Containers and Virtual Machines/container run time architecture.png]
+
 1. ### Creation 
 performed by the _docker create_ command 
 
