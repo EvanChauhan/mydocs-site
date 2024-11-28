@@ -59,8 +59,10 @@ jobs:
           
       - name: Check for broken links
         run: | 
-          curl -I http://localhost:8000/mysite/
-          curl --head https://example.com/nonexistent-page
+          wget --spider --recursive --no-verbose --output-file=wget-log http://localhost:8000
+          # exit with error if 404's or redirect issues are encountered 
+          grep -E "(404|301|302)" wget-log && (echo "Broken links found" && exit 1) || echo "No broken links found"
+          
 
 
 
