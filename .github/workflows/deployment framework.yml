@@ -59,6 +59,7 @@ jobs:
           
       - name: Check for broken links
         run: | 
+          curl -I http://localhost:8000/mysite/
           wget --spider --recursive --no-verbose --output-file=wget-log http://localhost:8000
           grep -E "404|301|302" wget-log | awk '{print $1}' | (echo "Broken links found" && exit 1) || echo "No broken links found"
 
