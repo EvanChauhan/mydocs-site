@@ -19,6 +19,11 @@ theme:
     - search.highlight 
     - search.share
     - search.suggest 
+    - footer
+extra:
+  social:
+  - icon: fontawesome/brands/github
+    link: https://github.com/EvanChauhan
     plugins:
     - search
     - mermaid2
