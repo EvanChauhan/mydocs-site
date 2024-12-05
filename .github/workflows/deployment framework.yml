@@ -61,12 +61,10 @@ jobs:
         env:
           WEBSITE_URL: http://localhost:8000/mysite/
         run: |
-          #!/bin/bash
-
           check_link() {
-          local url = $1
+          local url =$1
           http_code=$(curl -o /dev/null --silent --head --write-out '%{http_code} \n' "$url")
-          if [ "http_code" -eq 200]; then
+          if [ "$http_code" -eq 200 ]; then
             echo "ok - $url"
           else
             echo "Broken Link ($http_code) - $url"
@@ -75,13 +73,14 @@ jobs:
           }
           
           #check if URL is provided
-          if [-z "$WEBSITE_URL"]; then 
+          if [ -z "$WEBSITE_URL" ]; then 
           echo "WEBSITE_URL environment variable is not set. "
           exit 1
           fi 
 
           #fetch all href links from our website
-          links=$(curl -s "$WEBSITE_URL" | grep -oP '(?<href=")[^]*')
+          links=$(curl -s "$WEBSITE_URL" | grep -oP '(?<=href=")[^"]*')
+
 
           #loop through each link, checking their status
           for link in $links; do
@@ -89,9 +88,9 @@ jobs:
             if [[ "$link" =~ ^/ ]]; then 
               # Append the relative path to the /mysite/ base URL 
               if [[ ! "$link" =~ /$ ]]; then 
-                link="WEBSITE_URL${link#/}/"
+                link="$WEBSITE_URL${link#/}/"
               else
-                link = "WEBSITE_URL${link#/}"
+                link="$WEBSITE_URL${link#/}/"
               fi
             fi
 
