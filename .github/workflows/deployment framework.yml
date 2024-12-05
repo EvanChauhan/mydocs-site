@@ -59,7 +59,7 @@ jobs:
           
       - name: Check for broken links
         run: | 
-          curl -L -1 http://localhost:8000/mysite/
+          curl -L http://localhost:8000/mysite/
          
 
           
