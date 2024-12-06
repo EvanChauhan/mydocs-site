@@ -63,7 +63,7 @@ jobs:
         run: |
           check_link() {
           local url=$1
-          http_code=$(curl -o /dev/null --silent --head --write-out '%{http_code}\n' "$url")
+          http_code=$(curl -o /dev/null --silent --head -L --write-out '%{http_code}\n' "$url")
           if [ "$http_code" -eq 200 ]; then
             echo "ok - $url"
           else
