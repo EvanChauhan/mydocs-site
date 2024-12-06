@@ -59,7 +59,7 @@ jobs:
          
       - name: Run Link Checker
         env:
-          WEBSITE_URL: http://localhost:8000/mysite/
+          WEBSITE_URL: https://amazing-pudding-ee3b09.netlify.app/
         run: |
           check_link() {
           local url=$1
