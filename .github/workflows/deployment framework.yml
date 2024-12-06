@@ -62,8 +62,8 @@ jobs:
           WEBSITE_URL: http://localhost:8000/mysite/
         run: |
           check_link() {
-          local url =$1
-          http_code=$(curl -o /dev/null --silent --head --write-out '%{http_code} \n' "$url")
+          local url=$1
+          http_code=$(curl -o /dev/null --silent --head --write-out '%{http_code}\n' "$url")
           if [ "$http_code" -eq 200 ]; then
             echo "ok - $url"
           else
@@ -74,7 +74,7 @@ jobs:
           
           #check if URL is provided
           if [ -z "$WEBSITE_URL" ]; then 
-          echo "WEBSITE_URL environment variable is not set. "
+          echo "WEBSITE_URL environment variable is not set."
           exit 1
           fi 
 
@@ -90,7 +90,7 @@ jobs:
               if [[ ! "$link" =~ /$ ]]; then 
                 link="$WEBSITE_URL${link#/}/"
               else
-                link="$WEBSITE_URL${link#/}/"
+                link="$WEBSITE_URL${link#/}"
               fi
             fi
 
