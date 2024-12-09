@@ -56,6 +56,15 @@ jobs:
           password: ${{secrets.DOCKER_PASSWORD}}
           repository: bigsilver07/my-mkdocs-site
           tags: latest, ${{ github.run_number }}
+
+      - name: Lint YAML
+        run: yamllint mkdocs.yml
+      
+      - name: Lint Markdown
+        run: markdownlint '**/*.md'
+      
+      - name: check for safety vulnerabilities 
+        run: Safety Check 
          
       - name: Run Link Checker
         env:
