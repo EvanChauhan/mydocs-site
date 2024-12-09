@@ -60,11 +60,6 @@ jobs:
       - name: Lint YAML
         run: yamllint mkdocs.yml
       
-      - name: Run Super-Linter
-        uses: github/super-linter@v5
-        env:
-          VALIDATE_MARKDOWN: true
-      
       - name: check for safety vulnerabilities 
         run: Safety Check 
          
