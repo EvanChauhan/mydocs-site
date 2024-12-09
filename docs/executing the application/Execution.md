@@ -95,11 +95,14 @@ alternatively rmdir will remove any directory specified
 
 ## build.sh
 this script builds a docker image from our dockerfile via the following command docker image build
-docker build -t $REGISTRY/$IMAGE:$TAG .
+> docker build -t $REGISTRY/$IMAGE:$TAG .
+> REGISTRY=evan.chauhan
+> IMAGE=my-mkdocs-site
+> TAG=1.0
 
 ## run.sh 
 this script upon execution, will run a container (my-docs) from our docker image that we just built with the command directly above
 
 > set -ex
 
-docker run --rm -p 8000:8000 -v ${PWD}:/app --name my-docs -d evan.chauhan/my-mkdocs-site:1.0 
+> docker run --rm -p 8000:8000 -v ${PWD}:/app --name my-docs -d evan.chauhan/my-mkdocs-site:1.0 
