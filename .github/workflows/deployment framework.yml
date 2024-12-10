@@ -59,15 +59,10 @@ jobs:
 
       - name: Lint YAML
         run: yamllint mkdocs.yml
-      
-      - name: Install Safety
-        run: |
-          python -m pip install --upgrade pip
-          pip install safety
 
-      - name: Run Safety Check
-        run: |
-          safety check
+      - name: Scan mkdocs configuration
+        run: scan --config-file=mkdocs.yml --strict
+        
          
       - name: Run Link Checker
         env:
