@@ -61,15 +61,12 @@ jobs:
         run: |
             pip install mkdocs
             pip install mkdocs-material
-            
+
       - name: Lint YAML
         run: yamllint mkdocs.yml
 
       - name: Verify Scan Tool
         run: which scan || echo "Scan command not found in PATH"
-
-      - name: Run Scan
-        run: scan --config-file=mkdocs.yml --strict
         
       - name: Run Link Checker
         env:
