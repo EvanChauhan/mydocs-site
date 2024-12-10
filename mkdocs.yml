@@ -27,10 +27,4 @@ extra:
       link: https://github.com/EvanChauhan
 plugins:
   - search
-  - mermaid2
-  - pymdownx.extra
-  - pymdownx.superfences:
-      custom_fences:
-        - name: mermaid
-          class: mermaid
-          format: !!python/name:pymdownx.superfences.fence_code_format
+

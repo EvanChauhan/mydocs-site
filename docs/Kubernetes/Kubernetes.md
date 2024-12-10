@@ -1,6 +1,6 @@
 ## Kubernetes - a container orchestrator
 
-> a kubernetes cluster is a set of machines called nodes that are used to run containerised applications
+> a kubernetes cluster is a set of machines called nodes that are used to run _containerised_ applications
 
 ![kubernetes cluster](https://www.researchgate.net/publication/353390819/figure/fig3/AS:1048498610905088@1626992957043/Kubernetes-cluster-architecture.ppm)
 
@@ -100,8 +100,10 @@ it works in tandem with docker
 
 ### Mononlith to Microservices - success stories and examples
 
-------------|-------------------
-Appdirect   | end-to-end e-com platform
+| Company     | Description                  |
+|-------------|------------------------------|
+| Appdirect   | end-to-end e-com platform    |
+
 
 
 ### some terms
